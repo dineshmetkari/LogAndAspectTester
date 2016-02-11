@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-public class A {
+public class MyClass {
     int x;
     int y;
 

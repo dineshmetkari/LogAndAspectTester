@@ -1,7 +1,6 @@
 package Aspect;
 
-import Core.A;
-import org.apache.log4j.spi.LoggerFactory;
+import Core.MyClass;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -20,21 +19,21 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class ExecAspect {
-    private static Logger mylog = org.slf4j.LoggerFactory.getLogger(A.class);
+    private static Logger mylog = org.slf4j.LoggerFactory.getLogger(MyClass.class);
 
     //Selected method in this class
-    @Before("execution(* Core.A.getAplusB())")
+    @Before("execution(* Core.MyClass.getAplusB())")
     public void hihihi(JoinPoint joinPoint) {
         System.out.println("---BEFORE POINTCUT---");
     }
 
     //Any method in this package  [could specify class instead of *]
-    @After("execution(* Core.*.*())")
+    @After("execution(* Core.M*.*())")
     public void hahaha(JoinPoint joinPoint) {
         System.out.println("+++AFTER POINTCUT+++");
     }
 
-    @Around("execution(* Core.A.longComputation())")
+    @Around("execution(* Core.MyClass.longComputation())")
     public void measureDuration(ProceedingJoinPoint joinPoint) throws Throwable {
         long st = System.currentTimeMillis();
         joinPoint.proceed();
