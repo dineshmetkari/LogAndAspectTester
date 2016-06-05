@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
  * Created by pm on 1/7/16.
  *
  * Aspects: * means "any"
+ * 
+ * Check also: http://stackoverflow.com/questions/2011089/aspectj-pointcut-for-all-methods-of-a-class-with-specific-annotation
  */
 
 @Component
